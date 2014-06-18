@@ -41,6 +41,7 @@ import org.apache.commons.lang.StringUtils;
  */
 public class TestCLI extends CLITestHelper {
   public static final String TEST_DIR_ABSOLUTE = "/tmp/testcli_" + Long.valueOf(System.currentTimeMillis());
+  public String HCFS_SCHEME;
   private String supergroup;
   private String namenode;
   private static Shell shHDFS = new Shell("/bin/bash");
@@ -79,6 +80,9 @@ public class TestCLI extends CLITestHelper {
     Assert.assertEquals("This test needs to be run under root user of hcfs",
         System.getProperty("hcfs.root.username", "hdfs"),
         System.getProperty("user.name"));
+
+    // Initialize variables from test config file
+    HCFS_SCHEME = System.getProperty("hcfs.scheme", "hdfs:");
   }
 
   @After
@@ -117,6 +121,7 @@ public class TestCLI extends CLITestHelper {
     expCmd = expCmd.replaceAll("supergroup", supergroup);
     expCmd = expCmd.replaceAll("NAMENODE", namenode);
     expCmd = expCmd.replaceAll("USER_NAME", System.getProperty("user.name"));
+    expCmd = expCmd.replaceAll("HCFS_SCHEME", HCFS_SCHEME);
     return expCmd;
   }
 

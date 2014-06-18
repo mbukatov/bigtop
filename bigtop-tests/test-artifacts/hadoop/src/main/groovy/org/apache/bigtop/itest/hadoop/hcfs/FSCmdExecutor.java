@@ -60,6 +60,7 @@ public class FSCmdExecutor extends CommandExecutor {
           toURI().toString().replace(' ', '+'));
       args[i] = args[i].replaceAll("USER_NAME", System.getProperty("user.name"));
       args[i] = args[i].replaceAll("TEST_DIR_ABSOLUTE", TestCLI.TEST_DIR_ABSOLUTE);
+      args[i] = args[i].replaceAll("HCFS_SCHEME", TestCLI.HCFS_SCHEME);
 
       i++;
     }
