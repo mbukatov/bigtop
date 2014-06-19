@@ -41,8 +41,8 @@ import org.apache.commons.lang.StringUtils;
  */
 public class TestCLI extends CLITestHelper {
   public static final String TEST_DIR_ABSOLUTE = "/tmp/testcli_" + Long.valueOf(System.currentTimeMillis());
-  public String HCFS_SCHEME;
-  public String HCFS_DIRSIZE;
+  public static String HCFS_SCHEME;
+  public static String HCFS_DIRSIZE;
   private String supergroup;
   private String namenode;
   private static Shell shHDFS = new Shell("/bin/bash");
