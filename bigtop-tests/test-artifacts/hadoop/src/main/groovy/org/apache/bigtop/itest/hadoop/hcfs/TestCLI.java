@@ -44,6 +44,7 @@ public class TestCLI extends CLITestHelper {
   public static String HCFS_SCHEME;
   public static String HCFS_DIRSIZE;
   public static String HCFS_NNMATCH;
+  public static String NAMENODE_TESTDIR_HACK;
   private String supergroup;
   private String namenode;
   private static Shell shHDFS = new Shell("/bin/bash");
@@ -88,6 +89,17 @@ public class TestCLI extends CLITestHelper {
     HCFS_SCHEME = System.getProperty("hcfs.scheme", "hdfs:");
     HCFS_DIRSIZE = System.getProperty("hcfs.dirsize.pattern", "0");
     HCFS_NNMATCH = System.getProperty("hcfs.namenode.pattern", "\\w+[-.a-z0-9]*(:[0-9]+)?");
+
+    // HCFS fs.default.name Hack
+    // Hadoop property 'fs.default.name' usually has value like this one:
+    // "hdfs://namenode_hostname:port". But for other hadoop filesystems, the
+    // value may just end with 3 slashes in a row (eg. 'glusterfs:///' or
+    // 'maprfs:///'). This leads to file paths with 4 slashes in it (eg.
+    // 'glusterfs:////tmp/testcli_sth') which are shortened back to
+    // 'glusterfs:///tmp/...' if the file actually exists. To fix this we just
+    // replace 4 slashes with 3 to prevent this from happening.
+    String namenode_testdir = namenode + TEST_DIR_ABSOLUTE;
+    NAMENODE_TESTDIR_HACK = namenode_testdir.replace(":////", ":///");
   }
 
   @After
@@ -122,6 +134,7 @@ public class TestCLI extends CLITestHelper {
   protected String expandCommand(final String cmd) {
     String expCmd = super.expandCommand(cmd);
     // note: super.expandCommand() expands CLITEST_DATA and USERNAME
+    expCmd = expCmd.replaceAll("NAMENODETEST_DIR_ABSOLUTE", NAMENODE_TESTDIR_HACK);
     expCmd = expCmd.replaceAll("TEST_DIR_ABSOLUTE", TEST_DIR_ABSOLUTE);
     expCmd = expCmd.replaceAll("supergroup", supergroup);
     expCmd = expCmd.replaceAll("NAMENODE", namenode);

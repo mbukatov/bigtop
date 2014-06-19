@@ -54,6 +54,8 @@ public class FSCmdExecutor extends CommandExecutor {
     int i = 0;
     while (tokenizer.hasMoreTokens()) {
       args[i] = tokenizer.nextToken();
+      // HCFS fs.default.name Hack (see TestCLI.java)
+      args[i] = args[i].replaceAll("NAMENODETEST_DIR_ABSOLUTE", TestCLI.NAMENODE_TESTDIR_HACK);
       args[i] = args[i].replaceAll(masterKey, master);
       args[i] = args[i].replaceAll("CLITEST_DATA", 
           new File(CLITestHelper.TEST_CACHE_DATA_DIR).
