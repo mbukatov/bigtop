@@ -54,7 +54,8 @@ public class TestCLI extends CLITestHelper {
 
     // Configuration of real Hadoop cluster
     conf = new HdfsConfiguration();
-    supergroup = conf.get(DFSConfigKeys.DFS_PERMISSIONS_SUPERUSERGROUP_KEY);
+    supergroup = System.getProperty("hcfs.root.groupname",
+        conf.get(DFSConfigKeys.DFS_PERMISSIONS_SUPERUSERGROUP_KEY));
     namenode = conf.get(CommonConfigurationKeys.FS_DEFAULT_NAME_KEY);
 
     conf.setBoolean(CommonConfigurationKeys.HADOOP_SECURITY_AUTHORIZATION, true);
