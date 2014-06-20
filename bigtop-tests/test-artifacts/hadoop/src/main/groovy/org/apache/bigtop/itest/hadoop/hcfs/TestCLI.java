@@ -43,6 +43,7 @@ public class TestCLI extends CLITestHelper {
   public static final String TEST_DIR_ABSOLUTE = "/tmp/testcli_" + Long.valueOf(System.currentTimeMillis());
   public static String HCFS_SCHEME;
   public static String HCFS_DIRSIZE;
+  public static String HCFS_NNMATCH;
   private String supergroup;
   private String namenode;
   private static Shell shHDFS = new Shell("/bin/bash");
@@ -86,6 +87,7 @@ public class TestCLI extends CLITestHelper {
     // Initialize variables from test config file
     HCFS_SCHEME = System.getProperty("hcfs.scheme", "hdfs:");
     HCFS_DIRSIZE = System.getProperty("hcfs.dirsize.pattern", "0");
+    HCFS_NNMATCH = System.getProperty("hcfs.namenode.pattern", "\\w+[-.a-z0-9]*(:[0-9]+)?");
   }
 
   @After
@@ -126,6 +128,7 @@ public class TestCLI extends CLITestHelper {
     expCmd = expCmd.replaceAll("USER_NAME", System.getProperty("user.name"));
     expCmd = expCmd.replaceAll("HCFS_SCHEME", HCFS_SCHEME);
     expCmd = expCmd.replaceAll("HCFS_DIRSIZE", HCFS_DIRSIZE);
+    expCmd = expCmd.replaceAll("HCFS_NNMATCH", HCFS_NNMATCH);
     return expCmd;
   }
 

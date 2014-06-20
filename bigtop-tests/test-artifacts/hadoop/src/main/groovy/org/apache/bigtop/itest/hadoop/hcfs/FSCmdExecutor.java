@@ -62,6 +62,7 @@ public class FSCmdExecutor extends CommandExecutor {
       args[i] = args[i].replaceAll("TEST_DIR_ABSOLUTE", TestCLI.TEST_DIR_ABSOLUTE);
       args[i] = args[i].replaceAll("HCFS_SCHEME", TestCLI.HCFS_SCHEME);
       args[i] = args[i].replaceAll("HCFS_DIRSIZE", TestCLI.HCFS_DIRSIZE);
+      args[i] = args[i].replaceAll("HCFS_NNMATCH", TestCLI.HCFS_NNMATCH);
 
       i++;
     }
