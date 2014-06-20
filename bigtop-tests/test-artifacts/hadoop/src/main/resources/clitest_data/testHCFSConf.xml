@@ -5466,7 +5466,8 @@
      </comparators>
     </test>
 
-    <test> <!-- TESTEDtest-id=242 -->
+    <!-- TESTEDtest-id=242 not appliable for HCFS
+    <test>
       <description>checksum: checksum of files(relative path) using globbing</description>
       <test-commands>
         <command>-fs NAMENODE -mkdir -p dir0</command>
@@ -5498,6 +5499,7 @@
         </comparator>
       </comparators>
     </test>
+    -->
     
     <!-- Tests for moveToLocal -->
     <!-- Not yet implemented -->
@@ -6460,7 +6462,9 @@
       </comparators>
     </test>
     
-    <test> <!-- TESTED test-id=294 -->
+
+    <!-- TESTEDtest-id=294 not appliable for HCFS
+    <test>
       <description>stat: statistics about directory(absolute path)</description>
       <test-commands>
         <command>-fs NAMENODE -mkdir TEST_DIR_ABSOLUTE/dirtest</command>
@@ -6476,8 +6480,10 @@
         </comparator>
       </comparators>
     </test>
+    -->
     
-    <test> <!-- TESTED test-id=295 -->
+    <!-- TESTEDtest-id=295 not appliable for HCFS
+    <test>
       <description>stat: statistics about directory(relative path)</description>
       <test-commands>
         <command>-fs NAMENODE -mkdir -p dirtest</command>
@@ -6493,8 +6499,10 @@
         </comparator>
       </comparators>
     </test>
+    -->
     
-    <test> <!-- TESTED test-id=296 -->
+    <!-- TESTEDtest-id=296 not appliable for HCFS
+    <test>
       <description>stat: statistics about files (absolute path) using globbing</description>
       <test-commands>
         <command>-fs NAMENODE -mkdir TEST_DIR_ABSOLUTE/dir0</command>
@@ -6531,11 +6539,13 @@
         </comparator>
       </comparators>
     </test>
+    -->
     
-    <test> <!-- TESTED test-id=297 -->
+    <!-- TESTEDtest-id=297 not appliable for HCFS
+    <test>
       <description>stat: statistics about files (relative path) using globbing</description>
       <test-commands>
-        <command>-fs NAMENODE -mkdir -p dir</command> <!-- make sure user home dir exists -->
+        <command>-fs NAMENODE -mkdir -p dir</command>
         <command>-fs NAMENODE -touchz test</command>
         <command>-fs NAMENODE -put CLITEST_DATA/data15bytes data15bytes</command>
         <command>-fs NAMENODE -put CLITEST_DATA/data30bytes data30bytes</command>
@@ -6570,6 +6580,7 @@
         </comparator>
       </comparators>
     </test>
+    -->
     
     <test> <!-- TESTED test-id=298 -->
       <description>stat: statistics about file or directory(absolute path) that does not exist</description>
@@ -6618,7 +6629,8 @@
       </comparators>
     </test>
     
-    <test> <!-- TESTED test-id=301 -->
+    <!-- TESTEDtest-id=301 not appliable for HCFS
+    <test>
       <description>stat: Test for HCFS_SCHEME// path - statistics about directory</description>
       <test-commands>
         <command>-fs NAMENODE -mkdir HCFS_SCHEME//TEST_DIR_ABSOLUTE/dirtest</command>
@@ -6634,8 +6646,10 @@
         </comparator>
       </comparators>
     </test>
+    -->
     
-    <test> <!-- TESTED test-id=302 -->
+    <!-- TESTEDtest-id=302 not appliable for HCFS
+    <test>
       <description>stat: Test for HCFS_SCHEME// path - statistics about files using globbing</description>
       <test-commands>
         <command>-fs NAMENODE -mkdir TEST_DIR_ABSOLUTE/dir0</command>
@@ -6672,6 +6686,7 @@
         </comparator>
       </comparators>
     </test>
+    -->
     
     <test> <!-- TESTED test-id=303 -->
       <description>stat: Test for HCFS_SCHEME// path - statistics about file or directory that does not exist</description>
@@ -6705,7 +6720,8 @@
       </comparators>
     </test>
     
-    <test> <!-- TESTED test-id=305 -->
+    <!-- TESTEDtest-id=305 not appliable for HCFS
+    <test>
       <description>stat: Test for Namenode's path - statistics about directory</description>
       <test-commands>
         <command>-fs NAMENODE -mkdir NAMENODETEST_DIR_ABSOLUTE/dirtest</command>
@@ -6721,8 +6737,10 @@
         </comparator>
       </comparators>
     </test>
+    -->
     
-    <test> <!-- TESTED test-id=306 -->
+    <!-- TESTEDtest-id=306 not appliable for HCFS
+    <test>
       <description>stat: Test for Namenode's path - statistics about files using globbing</description>
       <test-commands>
         <command>-fs NAMENODE -mkdir TEST_DIR_ABSOLUTE/dir0</command>
@@ -6759,6 +6777,7 @@
         </comparator>
       </comparators>
     </test>
+    -->
     
     <test> <!-- TESTED test-id=307 -->
       <description>stat: Test for Namenode's path - statistics about file or directory that does not exist</description>
