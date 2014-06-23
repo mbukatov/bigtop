@@ -88,7 +88,7 @@ public class TestCLI extends CLITestHelper {
     // Initialize variables from test config file
     HCFS_SCHEME = System.getProperty("hcfs.scheme", "hdfs:");
     HCFS_DIRSIZE = System.getProperty("hcfs.dirsize.pattern", "0");
-    HCFS_NNMATCH = System.getProperty("hcfs.namenode.pattern", "\\w+[-.a-z0-9]*(:[0-9]+)?");
+    HCFS_NNMATCH = System.getProperty("hcfs.namenode.pattern", "\\\\w+[-.a-z0-9]*(:[0-9]+)?");
 
     // HCFS fs.default.name Hack
     // Hadoop property 'fs.default.name' usually has value like this one:
